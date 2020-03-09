@@ -1,0 +1,22 @@
+{
+  "name": "chemexam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LupusDiamond/chem-exam.git"
+  },
+  "author": "Digital Kings 2020",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LupusDiamond/chem-exam/issues"
+  },
+  "homepage": "https://github.com/LupusDiamond/chem-exam#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
