@@ -1,7 +1,11 @@
 /// Core App File
 
-// Packages
-const express = require("express");
+// Loading ExpressJS files
+const { e_app } = require("./utils/express/index");
 
-const e_app = express();
-e_app.listen(3000, () => console.log("Server up and running!"));
+// Root folder directory
+const dir = __dirname;
+
+module.exports = {
+  dir
+};
