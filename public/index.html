@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Chemistry Test</title>
+  </head>
+  <body class="bg-gray-200 tracking-widest leading-tight relative min-h-screen">
+    <header
+      class="pt-6 px-8 md:pt-8 md:px-12 flex justify-between items-center"
+    >
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="./images/logo.svg" alt="" class="h-4 w-4 md:h-8 md:w-8" />
+        <p class="text-xl md:text-3xl text-gray-700 font-bold ml-2 md:ml-4">
+          Chemistry
+        </p>
+      </div>
+
+      <!-- Language -->
+      <div
+        class="cursor-pointer rounded flex overflow-hidden text-base md:text-lg font-bold shadow-md"
+      >
+        <div class="text-indigo-600 bg-white py-1 px-2 md:py-2 md:px-3">RO</div>
+        <div class="bg-indigo-600 text-white py-1 px-2 md:py-2 md:px-3">EN</div>
+      </div>
+    </header>
+
+    <!-- Main -->
+
+    <main>
+      <!-- Tagline -->
+      <p
+        class="text-3xl md:text-5xl text-center font-bold text-indigo-600 mx-auto mt-6 md:mt-8 px-6 md:px-12"
+      >
+        Welcome
+        <span class="text-gray-700"
+          >, what would you like to be tested on?</span
+        >
+      </p>
+
+      <!-- Cards -->
+      <div class="py-6 px-8 md:py-8 md:px-12 flex flex-col md:flex-row">
+        <!-- Inorganic -->
+        <div
+          onclick="appear()"
+          class="cursor-pointer bg-white rounded-lg shadow-lg hover:shadow-md p-4 md:p-6 mb-6 md:mb-0 md:mr-4 transform hover:scale-95 transition duration-300"
+        >
+          <img
+            class="mx-auto w-3/4"
+            src="./images/inorganic.svg"
+            alt="Inorganic"
+          />
+          <p
+            class="text-xl md:text-2xl text-center font-bold text-gray-700 mt-6 md:mt-8"
+          >
+            Inorganic Chemistry
+          </p>
+        </div>
+
+        <!-- Organic -->
+        <div
+          onclick="appear()"
+          class="cursor-pointer bg-white rounded-lg shadow-lg hover:shadow-md p-6 md:ml-4 transform hover:scale-95 transition duration-300"
+        >
+          <img class="mx-auto w-3/4" src="./images/organic.svg" alt="Organic" />
+          <p
+            class="text-xl md:text-2xl text-center font-bold text-gray-700 mt-6 md:mt-8"
+          >
+            Organic Chemistry
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Overlay -->
+
+    <div
+      onclick="remove()"
+      id="overlay"
+      class="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full pointer-events-none bg-gray-200 opacity-0 transition duration-300"
+    ></div>
+
+    <div class="form opacity-0 pointer-events-none z-20 p-6 w-full max-w-3xl transition duration-300">
+      <div class="rounded p-6 md:py-8 md:px-12 bg-white shadow-lg">
+        <p class="text-center text-indigo-600 font-bold text-4xl md:text-5xl">
+          Hello!
+        </p>
+        <form class="mt-6 md:mt-8" action="./test.html">
+          <label
+            for="username"
+            class="text-sm uppercase font-bold text-gray-700"
+            >Your Name</label
+          >
+          <input
+            type="text"
+            name="username"
+            class="mt-2 mb-4 p-2 text-lg text-gray-700 font-bold w-full rounded focus:outline-none border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            required
+            placeholder="ex. John Doe"
+          />
+          <label
+            for="username"
+            class="text-sm uppercase font-bold text-gray-700"
+            >Select Chapter(s)</label
+          >
+
+          <div
+            class="flex justify-between items-center mt-2 p-2 rounded text-lg font-bold tracking-widest text-gray-500 border-2 border-gray-300 focus:border-indigo-300 tracking-wide cursor-pointer"
+          >
+            <span>You can select multiple</span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 9L12 16L5 9"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <input
+            type="submit"
+            value="Submit"
+            class="mt-6 mb-2 py-2 w-full rounded bg-indigo-600 hover:bg-indigo-700 text-white text-xl md:text-2xl tracking-wide focus:outline-none border-2 border-transparent focus:border-indigo-300 cursor-pointer"
+          />
+        </form>
+      </div>
+
+      <p onclick="remove()" class="text-lg text-gray-600 font-bold text-center pt-6 cursor-pointer">Tap to Cancel</p>
+    </div>
+
+    <script>
+      var overlay = document.querySelector("#overlay");
+      var form = document.querySelector(".form");
+
+      function appear() {
+        overlay.classList.add("pointer-events-auto");
+        overlay.classList.add("opacity-75");
+        overlay.classList.remove("pointer-events-none");
+        overlay.classList.remove("opacity-0");
+        form.classList.add("opacity-100");
+        form.classList.add("pointer-events-auto");
+        form.classList.remove("pointer-events-none");
+        form.classList.remove("opacity-0");
+      }
+
+      function remove() {
+        overlay.classList.remove("pointer-events-auto");
+        overlay.classList.remove("opacity-75");
+        overlay.classList.add("pointer-events-none");
+        overlay.classList.add("opacity-0");
+        form.classList.remove("opacity-100");
+        form.classList.remove("pointer-events-auto");
+        form.classList.add("pointer-events-none");
+        form.classList.add("opacity-0");
+      }
+    </script>
+  </body>
+</html>
