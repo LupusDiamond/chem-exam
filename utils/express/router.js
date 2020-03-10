@@ -1,22 +1,24 @@
 /// Core ExpressJS Router file
 
-const express = require("express");
-const { e_app } = require("./index");
+// Importing packages
+const { express, path } = require("../packages");
 const { dir } = require("../../index");
 
+// Create the expressjs router
 const router = express.Router();
 
+// All routes
 router.use("/", (req, res) => {
-  res.sendFile("/public/index.html");
+  res.sendFile(path.join(dir, "/public/index.html"));
 });
 
 router.use("/exam", (req, res) => {
-  res.sendFile("/public/test.html");
+  res.sendFile(path.join(dir, "/public/test.html"));
 });
 
 router.use("/review", (req, res) => {
   /// TO DO: Update this
-  res.sendFile("/public/test.html");
+  res.sendFile(path.join(dir, "/public/test.html"));
 });
 
 module.exports = {

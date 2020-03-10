@@ -1,19 +1,17 @@
 /// Core ExpressJS file
 
-const express = require("express");
-const path = require("path");
+// Importing packages
+const { express } = require("../packages");
 
-const { dir } = require("../../index");
-const { router } = require("./router");
-
+// Creating the express instance
 const e_app = express();
 
-e_app.use(express.static("public"));
-
-e_app.use("/", router);
-
+// Booting the server on port 3000
 e_app.listen(3000, () => console.log("Server up and running!"));
 
 module.exports = {
   e_app
 };
+
+// Load ExpressJS middleware
+require("./middleware");

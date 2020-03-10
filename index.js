@@ -1,11 +1,9 @@
 /// Core App File
 
-// Packages
-const express = require("express");
-const path = require("path");
-
+// Loading ExpressJS files
 const { e_app } = require("./utils/express/index");
 
+// Root folder directory
 const dir = __dirname;
 
 module.exports = {
