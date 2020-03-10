@@ -2,6 +2,12 @@
 
 // Packages
 const express = require("express");
+const path = require("path");
 
-const e_app = express();
-e_app.listen(3000, () => console.log("Server up and running!"));
+const { e_app } = require("./utils/express/index");
+
+const dir = __dirname;
+
+module.exports = {
+  dir
+};
