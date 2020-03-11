@@ -3,6 +3,10 @@
 // DOM Elements
 const __question = document.querySelector("#question");
 const __answers = document.querySelectorAll(".answer");
+const __next = document.querySelector("#b_next");
+const __previous = document.querySelector("#b_previous");
+
+let currentQuestionIndex = 0;
 
 // Fetch questions from JSON file (later changed to database)
 async function fetchQuestions() {
@@ -13,18 +17,44 @@ async function fetchQuestions() {
   return await f_questions;
 }
 
-fetchQuestions().then(questions => {
-  //__question.innerHTML = questions.question;
-  let inorganic = questions.inorganic;
-  let organic = questions.organic;
+function updateQuestion() {
+  fetchQuestions().then(questions => {
+    //__question.innerHTML = questions.question;
+    let inorganic = questions.inorganic;
+    let organic = questions.organic;
 
-  let currentQuestion = inorganic.chapters[0].chapterQuestions[0].question;
-  let currentAnswers = inorganic.chapters[0].chapterQuestions[0].answers;
-  __question.innerHTML = currentQuestion;
-  for (let i = 0; i < __answers.length; i++) {
-    __answers[i].innerHTML =
-      "" + String.fromCharCode(65 + i) + ". " + currentAnswers[i];
+    let currentQuestion =
+      inorganic.chapters[0].chapterQuestions[currentQuestionIndex].question;
+    let currentAnswers =
+      inorganic.chapters[0].chapterQuestions[currentQuestionIndex].answers;
+    __question.innerHTML = currentQuestion;
+    for (let i = 0; i < __answers.length; i++) {
+      __answers[i].innerHTML =
+        "" + String.fromCharCode(65 + i) + ". " + currentAnswers[i];
+    }
+  });
+}
+
+function loadNextQuestion() {
+  currentQuestionIndex++;
+  updateQuestion();
+}
+
+function loadPreviousQuestion() {
+  currentQuestionIndex--;
+  updateQuestion();
+}
+
+__next.addEventListener("click", () => {
+  if (currentQuestionIndex < 2) {
+    loadNextQuestion();
   }
 });
 
-console.log(questions);
+__previous.addEventListener("click", () => {
+  if (currentQuestionIndex > 0) {
+    loadPreviousQuestion();
+  }
+});
+
+updateQuestion();
