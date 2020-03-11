@@ -8,17 +8,17 @@ const { dir } = require("../../index");
 const router = express.Router();
 
 // All routes
-router.use("/", (req, res) => {
-  res.sendFile(path.join(dir, "/public/test.html"));
+router.get("/", (req, res) => {
+  res.sendFile(path.join(dir, "/public/index.html"));
 });
 
-router.use("/exam", (req, res) => {
-  res.sendFile(path.join(dir, "/public/test.html"));
+router.get("/exam", (req, res) => {
+  res.sendFile(path.join(dir, "/public/exam.html"));
 });
 
-router.use("/review", (req, res) => {
+router.get("/review", (req, res) => {
   /// TO DO: Update this
-  res.sendFile(path.join(dir, "/public/test.html"));
+  res.sendFile(path.join(dir, "/public/exam.html"));
 });
 
 module.exports = {
