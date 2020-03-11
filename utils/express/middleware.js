@@ -9,6 +9,3 @@ const { router } = require("./router");
 
 // Use Front-End from the public folder
 e_app.use(express.static("public"));
-
-// Use the router
-e_app.use("/", router);

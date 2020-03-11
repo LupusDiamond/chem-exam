@@ -9,7 +9,7 @@ const router = express.Router();
 
 // All routes
 router.use("/", (req, res) => {
-  res.sendFile(path.join(dir, "/public/index.html"));
+  res.sendFile(path.join(dir, "/public/test.html"));
 });
 
 router.use("/exam", (req, res) => {
