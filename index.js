@@ -11,3 +11,7 @@ module.exports = {
 
 // Loading ExpressJS files
 const { e_app } = require("./utils/express/index");
+const { router } = require("./utils/express/router");
+
+// Use the router
+e_app.use("/", router);
