@@ -13,7 +13,7 @@ router.use("/", (req, res) => {
 });
 
 router.use("/exam", (req, res) => {
-  res.sendFile(path.join(dir, "/public/test.html"));
+  res.sendFile(path.join(dir, "/public/pages/gamepage/exampage.html"));
 });
 
 router.use("/review", (req, res) => {

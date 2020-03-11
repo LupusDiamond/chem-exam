@@ -86,12 +86,14 @@
       class="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full pointer-events-none bg-gray-200 opacity-0 transition duration-300"
     ></div>
 
-    <div class="form opacity-0 pointer-events-none z-20 p-6 w-full max-w-3xl transition duration-300">
+    <div
+      class="form opacity-0 pointer-events-none z-20 p-6 w-full max-w-3xl transition duration-300"
+    >
       <div class="rounded p-6 md:py-8 md:px-12 bg-white shadow-lg">
         <p class="text-center text-indigo-600 font-bold text-4xl md:text-5xl">
           Hello!
         </p>
-        <form class="mt-6 md:mt-8" action="./test.html">
+        <form class="mt-6 md:mt-8">
           <label
             for="username"
             class="text-sm uppercase font-bold text-gray-700"
@@ -139,7 +141,12 @@
         </form>
       </div>
 
-      <p onclick="remove()" class="text-lg text-gray-600 font-bold text-center pt-6 cursor-pointer">Tap to Cancel</p>
+      <p
+        onclick="remove()"
+        class="text-lg text-gray-600 font-bold text-center pt-6 cursor-pointer"
+      >
+        Tap to Cancel
+      </p>
     </div>
 
     <script>
