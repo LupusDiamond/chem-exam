@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>Chemistry Test</title>
   </head>
-  <body class="bg-gray-200 tracking-widest leading-tight">
+  <body class="relative bg-gray-200 tracking-widest leading-tight">
     
     <main class="flex w-full min-h-screen p-6 md:p-8">
       <div class="flex-grow w-full bg-white rounded-lg shadow-lg p-6 md:p-8">
@@ -25,32 +25,32 @@
     
               <!-- Options -->
               
-              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded">
-                A. Kill Me
+              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded hover:bg-gray-400">
+                A. HMMMMM
               </button>
     
-              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded">
+              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded hover:bg-gray-400">
                 B. Router Doesn't work
               </button>
     
-              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded">
+              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded hover:bg-gray-400">
                 C. Eclipse going to jail
               </button>
     
-              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded">
-                D. I Don't like this design for the exam page but it works bleh
+              <button class="tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded hover:bg-gray-400">
+                D. I Don't like this design much
               </button>
           </div>
 
           <!-- Ze Buttons -->
           <div class="flex flex-col md:flex-row justify-between mt-6 text-lg md:text-xl">
             <div class="flex w-full md:w-auto">
-              <button class="w-1/2 md:w-auto py-2 px-4 bg-gray-300 text-center font-bold text-gray-700 rounded mr-2 tracking-wider focus:outline-none hover:bg-gray-700 hover:text-white">Previous</button>
-              <button class="w-1/2 md:w-auto py-2 px-4 bg-gray-300 text-center font-bold text-gray-700 rounded ml-2 tracking-wider focus:outline-none hover:bg-gray-700 hover:text-white">Next</button>
+              <button class="w-1/2 md:w-auto py-2 px-4 bg-gray-300 text-center font-bold text-gray-700 rounded mr-2 tracking-wider focus:outline-none hover:bg-gray-400">Previous</button>
+              <button class="w-1/2 md:w-auto py-2 px-4 bg-gray-300 text-center font-bold text-gray-700 rounded ml-2 tracking-wider focus:outline-none hover:bg-gray-400">Next</button>
             </div>
 
             <div class="w-full md:w-auto">
-              <button class="w-full md:w-auto py-2 px-4 mt-4 md:mt-0 bg-indigo-600 text-center font-bold text-white rounded tracking-wider focus:outline-none hover:bg-indigo-700">Submit</button>
+              <button onclick="appear()" class="w-full md:w-auto py-2 px-4 mt-4 md:mt-0 bg-indigo-600 text-center font-bold text-white rounded tracking-wider focus:outline-none hover:bg-indigo-700">Submit</button>
             </div>
           </div>
 
@@ -59,6 +59,67 @@
 
       </div>
     </main>
+
+    
+    <!-- Overlay -->
+
+    <div
+      id="overlay"
+      class="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full pointer-events-none bg-gray-200 opacity-0 transition duration-300"
+    ></div>
+
+    <!-- Result -->
+
+    <div class="form opacity-0 pointer-events-none z-20 px-4 md:px-0 w-full max-w-3xl transition duration-300">
+      <div class="rounded p-6 md:py-8 md:px-12 bg-white shadow-lg">
+        <p class="text-center text-indigo-600 font-bold text-4xl md:text-5xl">
+          Result
+        </p>
+        
+        <div class="flex flex-col-reverse md:flex-row mt-6 md:mt-8 w-full">
+
+          <!-- Buttons -->
+          <div class="w-full md:w-1/2 mt-6 md:mt-0">
+
+            <div class="h-full flex flex-col justify-between">
+              <div class="flex flex-col items-start">
+                <button class="w-full md:w-auto py-2 px-4 mb-4 bg-gray-300 text-center font-bold text-gray-700 rounded mr-2 tracking-wider focus:outline-none hover:bg-gray-400">Review your answers</button>
+                <button class="w-full md:w-auto py-2 px-4 mb-4 bg-gray-300 text-center font-bold text-gray-700 rounded mr-2 tracking-wider focus:outline-none hover:bg-gray-400">Take another test</button>
+              </div>
+
+              <div>
+                <button class="w-full md:w-auto py-2 px-4 bg-indigo-600 text-center font-bold text-white rounded tracking-wider focus:outline-none hover:bg-indigo-700">Submit to teacher</button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Chart -->
+          <div class="w-full md:w-1/2">
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var overlay = document.querySelector("#overlay");
+      var form = document.querySelector(".form");
+
+      function appear() {
+        overlay.classList.add("pointer-events-auto");
+        overlay.classList.add("opacity-75");
+        overlay.classList.remove("pointer-events-none");
+        overlay.classList.remove("opacity-0");
+        form.classList.add("opacity-100");
+        form.classList.add("pointer-events-auto");
+        form.classList.remove("pointer-events-none");
+        form.classList.remove("opacity-0");
+      }
+
+</script>
+    </script>
 
   </body>
 </html>
