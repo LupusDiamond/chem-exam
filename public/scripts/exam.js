@@ -8,6 +8,8 @@ const __previous = document.querySelector("#b_previous");
 
 let currentQuestionIndex = 0;
 
+const myAnswers = [0, 0, 0, 0, 0, 0, 0, 0];
+
 // Fetch questions from JSON file (later changed to database)
 async function fetchQuestions() {
   // Fetch file from server
@@ -28,9 +30,14 @@ function updateQuestion() {
     let currentAnswers =
       inorganic.chapters[0].chapterQuestions[currentQuestionIndex].answers;
     __question.innerHTML = currentQuestion;
+
     for (let i = 0; i < __answers.length; i++) {
+      function selectAnswer() {
+        chooseAnswer(currentQuestionIndex, i);
+      }
       __answers[i].innerHTML =
         "" + String.fromCharCode(65 + i) + ". " + currentAnswers[i];
+      __answers[i].onclick = selectAnswer;
     }
   });
 }
@@ -56,5 +63,10 @@ __previous.addEventListener("click", () => {
     loadPreviousQuestion();
   }
 });
+
+function chooseAnswer(qIndex, aIndex) {
+  myAnswers[qIndex] = aIndex;
+  console.log(myAnswers);
+}
 
 updateQuestion();
