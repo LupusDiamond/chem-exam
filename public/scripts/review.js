@@ -32,7 +32,7 @@ async function displayQuestion(qIndex, qAnswer) {
             <p
               class="mb-4 text-gray-700 text-lg md:text-xl font-bold"
             >
-              ${await myQuestion}
+             ${qIndex + 1}. ${await myQuestion}
             </p>
 
             <!-- Answers -->
