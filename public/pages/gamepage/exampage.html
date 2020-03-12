@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="exampage.css">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <h1 class="heading">Exam page</h1>
+    <h4 class="left">Digital kings</h4>
+    <h4 class="right">Time 00:00</h4>
+
+    <div class="container">
+        <div id="question-container" class="hide">
+            <!--class="hide"-->
+            <div id="question">Question</div>
+            <div id="answer-button">
+                <!-- <input type="radio" id="answer1" name="Answers" value="answer1">
+                <label for="answer1" class="allchecks correct">answer1</label><br>
+                <input type="radio" id="answer2" name="Answers" value="answer2">
+                <label for="answer2" class="allchecks wrong">answer2</label><br>
+                <input type="radio" id="answer3" name="Answers" value="answer3">
+                <label for="answer3" class="allchecks">answer3</label><br>
+                <input type="radio" id="answer4" name="Answers" value="answer4">
+                <label for="answer4" class="allchecks">answer4</label> -->
+                <button class="btn">answer1</button><br>
+                <button class="btn">answer2</button><br>
+                <button class="btn">answer3</button><br>
+                <button class="btn">answer4</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="prev-btn" class="prev-btn btn">Previous</button>
+            <button id="next-btn" class="next-btn btn">Next</button>
+            <button id="submit-btn" class="submit-btn btn" disabled>Submit</button>
+        </div>
+        <button id="start-btn" class="start-btn btn">Start</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="question.js"></script>
+    <script src="exampage.js"></script>
+
+</body>
+
+</html>

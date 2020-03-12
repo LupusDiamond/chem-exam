@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Chemistry Test</title>
+  </head>
+  <body class="bg-gray-200 tracking-widest leading-tight">
+    <main class="flex w-full min-h-screen p-6 md:p-8">
+      <div class="flex-grow w-full bg-white rounded-lg shadow-lg p-6 md:p-8">
+        <div class="flex flex-col justify-between h-full w-full">
+          <div>
+            <!-- Question -->
+            <div
+              id="question"
+              class="mb-6 md:mb-8 text-gray-700 text-lg md:text-3xl font-bold"
+            >
+              Q1. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Laudantium omnis quaerat nostrum repellendus deserunt dolorem.
+              Sequi quia voluptatum nesciunt consequatur voluptatibus, quaerat
+              nihil, facere veritatis tenetur, molestias at? Deserunt libero
+              perferendis molestias iste nulla consequuntur rem doloribus autem
+              eveniet consequatur?
+            </div>
+
+            <!-- Options -->
+
+            <button
+              class="answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded"
+            >
+              A. Kill Me
+            </button>
+
+            <button
+              class="answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded"
+            >
+              B. Router Doesn't work
+            </button>
+
+            <button
+              class="answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded"
+            >
+              C. Eclipse going to jail
+            </button>
+
+            <button
+              class="answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 focus:border-indigo-600 focus:bg-indigo-500 focus:outline-none focus:text-white text-gray-700 rounded"
+            >
+              D. I Don't like this design for the exam page but it works bleh
+            </button>
+          </div>
+
+          <!-- Ze Buttons -->
+          <div
+            class="flex flex-col md:flex-row justify-between mt-6 text-lg md:text-xl"
+          >
+            <div class="flex w-full md:w-auto">
+              <button
+                id="b_previous"
+                class="w-1/2 md:w-auto py-2 px-4 bg-gray-300 text-center font-bold text-gray-700 rounded mr-2 tracking-wider focus:outline-none hover:bg-gray-700 hover:text-white"
+              >
+                Previous
+              </button>
+              <button
+                id="b_next"
+                class="w-1/2 md:w-auto py-2 px-4 bg-gray-300 text-center font-bold text-gray-700 rounded ml-2 tracking-wider focus:outline-none hover:bg-gray-700 hover:text-white"
+              >
+                Next
+              </button>
+            </div>
+
+            <div class="w-full md:w-auto">
+              <button
+                class="w-full md:w-auto py-2 px-4 mt-4 md:mt-0 bg-indigo-600 text-center font-bold text-white rounded tracking-wider focus:outline-none hover:bg-indigo-700"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./scripts/exam.js"></script>
+  </body>
+</html>

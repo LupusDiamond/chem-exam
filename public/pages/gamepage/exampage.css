@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --correct-color: green;
+    --wrong-color: red;
+}
+.heading {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+    display: inline;
+}
+
+.right {
+    text-align: right;
+}
+
+body.correct {
+    background-color: var(--correct-color);
+}
+
+body.wrong {
+    background-color: var(--wrong-color);
+}
+/* for any element to hidden */
+.hide{
+    display: none;
+}
+
+/* answers btn */
+.btn{
+    border: 5px solid rgb(51, 51, 51);
+    margin:8px;
+    padding: 10px;
+
+}
+.btn:hover{
+    border-color: indigo;
+}
+.btn.correct{
+    background-color: var(--correct-color);
+    color: black;
+}
+.btn.wrong{
+    background-color: var(--wrong-color);
+}
