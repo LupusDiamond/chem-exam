@@ -6,15 +6,18 @@
         "chapterQuestions": [
           {
             "question": "What's the element in the periodic table of elements with an atomic mass of 6?",
-            "answers": ["Oxygen", "Carbon", "Platinum", "Potasium"]
+            "answers": ["Oxygen", "Carbon", "Platinum", "Potasium"],
+            "correct": 1
           },
           {
             "question": "What's up",
-            "answers": ["a", "Carbon", "Platinum", "Potasium"]
+            "answers": ["a", "Carbon", "Platinum", "Potasium"],
+            "correct": 2
           },
           {
             "question": "Ayy",
-            "answers": ["Oxygen", "Carbon", "c", "Potasium"]
+            "answers": ["Oxygen", "Carbon", "c", "Potasium"],
+            "correct": 3
           }
         ]
       }

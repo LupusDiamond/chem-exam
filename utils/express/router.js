@@ -18,7 +18,7 @@ router.get("/exam", (req, res) => {
 
 router.get("/review", (req, res) => {
   /// TO DO: Update this
-  res.sendFile(path.join(dir, "/public/exam.html"));
+  res.sendFile(path.join(dir, "/public/review.html"));
 });
 
 module.exports = {
