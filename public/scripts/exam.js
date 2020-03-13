@@ -5,6 +5,9 @@ const __question = document.querySelector("#question");
 const __answers = document.querySelectorAll(".answer");
 const __next = document.querySelector("#b_next");
 const __previous = document.querySelector("#b_previous");
+const __review = document.querySelector("#b_review");
+const __retest = document.querySelector("#b_retest");
+const __submit = document.querySelector("#b_submit");
 
 let currentQuestionIndex = 0;
 

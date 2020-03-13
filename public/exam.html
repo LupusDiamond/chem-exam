@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#5A67D8">
+    <meta name="theme-color" content="#5A67D8" />
     <link
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
@@ -111,11 +111,13 @@
             <div class="h-full flex flex-col justify-between">
               <div class="flex flex-col items-start">
                 <button
+                  id="b_review"
                   class="w-full md:w-auto py-2 px-4 mb-4 bg-gray-300 text-center font-bold text-gray-700 rounded mr-2 tracking-wider focus:outline-none hover:bg-gray-400"
                 >
                   Review your answers
                 </button>
                 <button
+                  id="b_retest"
                   class="w-full md:w-auto py-2 px-4 mb-4 bg-gray-300 text-center font-bold text-gray-700 rounded mr-2 tracking-wider focus:outline-none hover:bg-gray-400"
                 >
                   Take another test
@@ -124,6 +126,7 @@
 
               <div>
                 <button
+                  id="b_submit"
                   class="w-full md:w-auto py-2 px-4 bg-indigo-600 text-center font-bold text-white rounded tracking-wider focus:outline-none hover:bg-indigo-700"
                 >
                   Submit to teacher
