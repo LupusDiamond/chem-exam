@@ -63,11 +63,6 @@ async function displayQuestion(qIndex, qAnswer) {
             >
               C. ${await myAnswers[2]}
             </p>
-            <p
-              class="${await corrects[3]} ${await incorrects[3]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
-            >
-              D. ${await myAnswers[3]}
-            </p>
 
             <!-- Explanation -->
 
