@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5A67D8" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Chemistry Test</title>
+  </head>
+  <body
+    class="relative flex flex-col bg-gray-200 tracking-widest leading-tight relative min-h-screen"
+  >
+    <header
+      class="pt-6 px-8 md:pt-8 md:px-12 flex justify-between items-center"
+    >
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="./images/logo.svg" alt="" class="h-6 w-6 md:h-8 md:w-8" />
+        <p class="text-xl md:text-3xl text-gray-700 font-bold ml-2 md:ml-4">
+          Chemistry
+        </p>
+      </div>
+
+      <!-- Profile -->
+      <div
+        class="cursor-pointer flex items-center text-base text-gray-700 md:text-lg font-bold"
+      >
+        <!-- Name -->
+        <p class="mr-2 text-sm font-bold uppercase">Name</p>
+
+        <!-- Profile Image -->
+        <div class="rounded-full bg-white p-px md:p-1">
+          <img class="h-8 w-8 md:h-10 md:w-10 rounded-full" src="./images/woman.svg" alt="profile" />
+        </div>
+      </div>
+    </header>
+
+    <!-- main -->
+
+    <main class="w-full h-full flex flex-grow my-6 md:my-8 px-8 md:px-12">
+      <!-- Cards -->
+      <div class="flex flex-col md:flex-row flex-grow">
+        <!-- Inorganic -->
+        <div
+          class="flex flex-col w-full h-full p-4 md:p-6 mb-6 md:mb-0 md:mr-4 bg-white rounded-lg shadow-lg"
+        >
+          <p
+            class="text-xl md:text-2xl text-center font-bold text-gray-700 px-6 mb-6 md:mb-8"
+          >
+            Chapters - Inorganic Chemistry
+          </p>
+
+          <div class="flex flex-col flex-grow items-center justify-between">
+            <!-- Chapters -->
+            <div id="chapters" class="w-full text-base md:text-xl text-gray-700">
+
+              <button
+                class="w-full font-bold tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
+              >
+                Inorganic's Chapter
+              </button>
+              
+            </div>
+
+            <!-- Add More Button -->
+            <button
+              id="addChapterI"
+              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
+            >
+              Add More
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Organic -->
+        <div
+          class="flex flex-col w-full h-full p-6 md:ml-4 bg-white rounded-lg shadow-lg"
+        >
+          <p
+            class="text-xl md:text-2xl text-center font-bold text-gray-700 px-6 mb-6 md:mb-8"
+          >
+            Chapters - Organic Chemistry
+          </p>
+
+          <div class="flex flex-col flex-grow items-center justify-between">
+            <!-- Chapters -->
+            <div id="chapters" class="w-full text-base md:text-xl text-gray-700">
+
+              <button
+                class="w-full font-bold tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
+              >
+                Inorganic's Chapter
+              </button>
+              
+            </div>
+
+            <!-- Add More Button -->
+            <button
+              id="addChapterO"
+              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
+            >
+              Add More
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
