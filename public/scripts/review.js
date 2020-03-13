@@ -38,7 +38,7 @@ async function displayQuestion(qIndex, qAnswer) {
   let explaination = await questions.inorganic.chapters[0].chapterQuestions[
     qIndex
   ].explaination;
-  let questionDOM = `<div class="mt-16 md:mt-20">
+  let questionDOM = `<div class="my-6 md:my-8">
             <!-- Question -->
             <p
               class="mb-4 text-gray-700 text-lg md:text-xl font-bold"
