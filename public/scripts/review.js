@@ -29,11 +29,15 @@ async function displayQuestion(qIndex, qAnswer) {
     (await questions.inorganic.chapters[0].chapterQuestions[qIndex].correct) - 1
   ] = "correct ";
   let incorrects = ["", "", "", ""];
+  let answerText = "";
   if (
     mytestAnswers[qIndex] !=
     (await questions.inorganic.chapters[0].chapterQuestions[qIndex].correct) - 1
   ) {
     incorrects[mytestAnswers[qIndex]] = "incorrect ";
+    answerText = `<p class="text-red-600 w-auto font-bold mb-4 rounded-lg text-lg">Wrong.</p>`;
+  } else {
+    answerText = `<p class="text-green-600 w-auto font-bold mb-4 rounded-lg text-lg">Correct!</p>`;
   }
   let explaination = await questions.inorganic.chapters[0].chapterQuestions[
     qIndex
@@ -45,8 +49,8 @@ async function displayQuestion(qIndex, qAnswer) {
             >
              ${qIndex + 1}. ${await myQuestion}
             </p>
-
             <!-- Answers -->
+            ${answerText}
 
             <p
               class="${await corrects[0]} ${await incorrects[0]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
@@ -90,7 +94,8 @@ async function displayQuestion(qIndex, qAnswer) {
                 </span>
               </span>
             </p>
-          </div>`;
+          </div><!-- NICE HR -->
+            <div class="h-px w-11/12 bg-gray-300 border border-gray-300 rounded mx-auto"></div>`;
 
   return await questionDOM;
 }
