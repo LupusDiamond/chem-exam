@@ -21,6 +21,10 @@ router.get("/review", (req, res) => {
   res.sendFile(path.join(dir, "/public/review.html"));
 });
 
+router.get("/platform", (req, res) => {
+  res.sendFile(path.join(dir, "/public/platform.html"));
+});
+
 module.exports = {
   router
 };
