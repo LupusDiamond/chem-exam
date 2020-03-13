@@ -27,6 +27,9 @@ async function displayQuestion(qIndex, qAnswer) {
   corrects[
     (await questions.inorganic.chapters[0].chapterQuestions[qIndex].correct) - 1
   ] = "correct ";
+  let explaination = await questions.inorganic.chapters[0].chapterQuestions[
+    qIndex
+  ].explaination;
   let questionDOM = `<div class="mt-16 md:mt-20">
             <!-- Question -->
             <p
@@ -80,10 +83,7 @@ async function displayQuestion(qIndex, qAnswer) {
               <span
                 >Explanation :
                 <span id="explanation"
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  unde debitis magni, voluptates reiciendis esse minus quae
-                  dolore iusto earum labore repellat, cum adipisci ut maiores
-                  exercitationem blanditiis culpa inventore!
+                  >${await explaination}
                 </span>
               </span>
             </p>
