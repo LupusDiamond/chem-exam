@@ -19,3 +19,5 @@ e_app.use("/", router);
 e_app.get("/questions", (req, res) => {
   res.sendFile(path.join(__dirname, "/utils/exam/questions.json"));
 });
+
+require("./utils/platform/index");
