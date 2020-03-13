@@ -29,7 +29,8 @@ function updateQuestion() {
       inorganic.chapters[0].chapterQuestions[currentQuestionIndex].question;
     let currentAnswers =
       inorganic.chapters[0].chapterQuestions[currentQuestionIndex].answers;
-    __question.innerHTML = currentQuestion;
+    __question.innerHTML =
+      "" + (currentQuestionIndex + 1) + ". " + currentQuestion;
 
     for (let i = 0; i < __answers.length; i++) {
       function selectAnswer() {
