@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5A67D8" />
     <link
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
@@ -10,13 +11,15 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>Chemistry Test</title>
   </head>
-  <body class="relative bg-gray-200 tracking-widest leading-tight relative min-h-screen">
+  <body
+    class="relative bg-gray-200 tracking-widest leading-tight relative min-h-screen"
+  >
     <header
       class="pt-6 px-8 md:pt-8 md:px-12 flex justify-between items-center"
     >
       <!-- Logo -->
       <div class="flex items-center">
-        <img src="./images/logo.svg" alt="" class="h-4 w-4 md:h-8 md:w-8" />
+        <img src="./images/logo.svg" alt="" class="h-6 w-6 md:h-8 md:w-8" />
         <p class="text-xl md:text-3xl text-gray-700 font-bold ml-2 md:ml-4">
           Chemistry
         </p>
@@ -86,7 +89,9 @@
       class="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full pointer-events-none bg-gray-200 opacity-0 transition duration-300"
     ></div>
 
-    <div class="form opacity-0 pointer-events-none z-20 px-4 md:pb-6 w-full max-w-3xl transition duration-300">
+    <div
+      class="form opacity-0 pointer-events-none z-20 px-4 md:pb-6 w-full max-w-3xl transition duration-300"
+    >
       <div class="rounded p-6 md:py-8 md:px-12 bg-white shadow-lg">
         <p class="text-center text-indigo-600 font-bold text-4xl md:text-5xl">
           Hello!
@@ -100,7 +105,7 @@
           <input
             type="text"
             name="username"
-            class="mt-2 mb-4 p-2 text-lg text-gray-700 font-bold w-full rounded focus:outline-none border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            class="mt-2 mb-4 p-2 text-lg text-gray-700 font-bold w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
             required
             placeholder="ex. John Doe"
           />
@@ -134,7 +139,7 @@
           <input
             type="submit"
             value="Submit"
-            class="mt-6 mb-2 py-2 w-full rounded bg-indigo-600 hover:bg-indigo-700 text-white text-xl md:text-2xl tracking-wide focus:outline-none border-2 border-transparent focus:border-indigo-300 cursor-pointer"
+            class="mt-6 mb-2 py-2 w-full rounded bg-indigo-600 hover:bg-indigo-700 text-white text-xl md:text-2xl tracking-wide  border-2 border-transparent focus:border-indigo-300 cursor-pointer"
           />
         </form>
       </div>
