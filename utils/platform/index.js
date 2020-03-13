@@ -9,16 +9,21 @@ let testFile = JSON.parse(
 testFile.name = "Peter";
 //delete testFile.test;
 
-function addQuestion(initial, chapter) {
-  let questionTemplate = {
-    question: "",
-    answers: ["", "", ""],
-    correct: 0,
-    explaination: ""
-  };
+function addQuestion(initial, chapter, questionToAdd) {
+  questionTemplate = { ...questionToAdd };
+  testFile.initial[initial].chapters[chapter].chapterQuestions.push(
+    questionToAdd
+  );
 }
 function deleteQuestion(initial, chapter, idx) {}
 function editQuestion(initial, chapter, idx) {}
 
+addQuestion(1, 0, {
+  question: "hello there:",
+  answers: ["a", "b", "c"],
+  correct: 3,
+  explaination: "haha"
+});
 console.log(testFile);
+
 fs.writeFileSync("./utils/platform/test.json", JSON.stringify(testFile));
