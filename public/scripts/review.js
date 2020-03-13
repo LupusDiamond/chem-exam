@@ -27,7 +27,7 @@ async function displayQuestion(qIndex, qAnswer) {
   corrects[
     (await questions.inorganic.chapters[0].chapterQuestions[qIndex].correct) - 1
   ] = "correct ";
-  let questionDOM = `<div class="mt-16 md:mt-20">
+  let questionDOM = `<div class="my-6 md:my-8">
             <!-- Question -->
             <p
               class="mb-4 text-gray-700 text-lg md:text-xl font-bold"
