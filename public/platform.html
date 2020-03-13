@@ -68,6 +68,7 @@
 
             <!-- Add More Button -->
             <button
+              onclick="appear()"
               id="addChapterI"
               class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
             >
@@ -94,13 +95,14 @@
               <button
                 class="w-full font-bold tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
               >
-                Inorganic's Chapter
+                Organic's Chapter
               </button>
               
             </div>
 
             <!-- Add More Button -->
             <button
+              onclick="appear()"
               id="addChapterO"
               class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
             >
@@ -113,5 +115,103 @@
     </main>
 
     
+    <!-- Overlay -->
+
+    <div
+      onclick="remove()"
+      id="overlay"
+      class="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full pointer-events-none bg-gray-200 opacity-0 transition duration-300"
+    ></div>
+
+    <div
+      class="form opacity-0 pointer-events-none z-20 px-4 md:pb-6 w-full max-w-3xl transition duration-300"
+    >
+      <div class="rounded p-6 md:py-8 md:px-12 bg-white shadow-lg">
+
+        <!-- Chapter -->
+        <label
+            for="chapterName"
+            class="text-xl font-bold text-gray-700"
+            >Chapter Name
+          </label>
+        <input
+            type="text"
+            name="chapterName"
+            class="mt-2 mb-4 p-2 text-lg text-gray-700 font-bold w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            required
+            placeholder="ex. Thermodynamics"
+          />
+          
+          <div class="mb-2 flex justify-between">
+            <p class="text-xs font-bold uppercase text-gray-700"><span class="text-xl capitalize">Questions</span> (Tap to edit)</p>
+
+            <!-- Language -->
+            <div>
+              <input type="radio" name="language" id="romanian">
+              <label for="romanian">RO</label>
+              <input type="radio" name="language" id="english">
+              <label for="english">EN</label>
+            </div>
+          </div>
+          <div class="text-gray-700 h-64 overflow-y-scroll">
+            
+            <!-- Question(s) List -->
+
+            <div class="flex justify-between w-full font-bold tracking-wide text-left mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400">
+                <div class="w-3/4 p-2 md:p-4 truncate">Question-hint Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ad accusamus cum vel repellendus eaque, laborum esse. Nihil aperiam assumenda odit. Similique quia voluptate repellendus quaerat, excepturi minima beatae facere.</div>
+
+                <button class="bg-red-600 font-bold tracking-widest uppercase rounded text-xs text-white px-2 py-1 md:px-4 m-2"><span class="hidden md:inline">Delete</span> <span class="md:hidden">X</span></button>
+            </div>
+
+          </div>
+
+          <!-- Add Questions Button -->
+          
+          <button
+              id="addQuestion"
+              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
+            >
+              Add Question
+          </button>
+
+      </div>
+
+      <p
+        onclick="remove()"
+        class="text-lg text-gray-600 font-bold text-center pt-6 cursor-pointer"
+      >
+        Tap to Cancel
+      </p>
+    </div>
+
+
+
+
+    <script>
+      var overlay = document.querySelector("#overlay");
+      var form = document.querySelector(".form");
+
+      function appear() {
+        overlay.classList.add("pointer-events-auto");
+        overlay.classList.add("opacity-75");
+        overlay.classList.remove("pointer-events-none");
+        overlay.classList.remove("opacity-0");
+        form.classList.add("opacity-100");
+        form.classList.add("pointer-events-auto");
+        form.classList.remove("pointer-events-none");
+        form.classList.remove("opacity-0");
+      }
+
+      function remove() {
+        overlay.classList.remove("pointer-events-auto");
+        overlay.classList.remove("opacity-75");
+        overlay.classList.add("pointer-events-none");
+        overlay.classList.add("opacity-0");
+        form.classList.remove("opacity-100");
+        form.classList.remove("pointer-events-auto");
+        form.classList.add("pointer-events-none");
+        form.classList.add("opacity-0");
+      }
+    </script>
   </body>
 </html>
