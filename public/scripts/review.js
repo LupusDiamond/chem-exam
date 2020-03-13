@@ -17,6 +17,7 @@ async function fetchQuestions() {
 }
 
 async function displayQuestion(qIndex, qAnswer) {
+  let mytestAnswers = JSON.parse(localStorage.getItem("ANSWERS"));
   let questions = await fetchQuestions();
   let myQuestion = await questions.inorganic.chapters[0].chapterQuestions[
     qIndex
@@ -27,6 +28,13 @@ async function displayQuestion(qIndex, qAnswer) {
   corrects[
     (await questions.inorganic.chapters[0].chapterQuestions[qIndex].correct) - 1
   ] = "correct ";
+  let incorrects = ["", "", "", ""];
+  if (
+    mytestAnswers[qIndex] !=
+    (await questions.inorganic.chapters[0].chapterQuestions[qIndex].correct) - 1
+  ) {
+    incorrects[mytestAnswers[qIndex]] = "incorrect ";
+  }
   let explaination = await questions.inorganic.chapters[0].chapterQuestions[
     qIndex
   ].explaination;
@@ -41,22 +49,22 @@ async function displayQuestion(qIndex, qAnswer) {
             <!-- Answers -->
 
             <p
-              class="${await corrects[0]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
+              class="${await corrects[0]} ${await incorrects[0]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
             >
               A. ${await myAnswers[0]}
             </p>
             <p
-              class="${await corrects[1]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
+              class="${await corrects[1]} ${await incorrects[1]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
             >
               B. ${await myAnswers[1]}
             </p>
             <p
-              class="${await corrects[2]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
+              class="${await corrects[2]} ${await incorrects[2]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
             >
               C. ${await myAnswers[2]}
             </p>
             <p
-              class="${await corrects[3]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
+              class="${await corrects[3]} ${await incorrects[3]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
             >
               D. ${await myAnswers[3]}
             </p>

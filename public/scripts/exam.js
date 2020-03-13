@@ -74,3 +74,13 @@ function chooseAnswer(qIndex, aIndex) {
 }
 
 updateQuestion();
+
+/// DOM Buttons functionality
+__review.onclick = () => {
+  localStorage.setItem("ANSWERS", JSON.stringify(myAnswers));
+  window.location.href = ".././review";
+};
+
+__retest.onclick = () => {
+  window.location.href = ".././";
+};
