@@ -20,12 +20,12 @@ function deleteQuestion(initial, chapter, idx) {
 }
 function editQuestion(initial, chapter, idx) {}
 
-addQuestion(1, 0, {
+/*addQuestion(1, 0, {
   question: "hello there:",
   answers: ["a", "b", "c"],
   correct: 3,
   explaination: "haha"
-});
+});*/
 console.log(testFile);
 
 fs.writeFileSync("./utils/platform/test.json", JSON.stringify(testFile));

@@ -25,6 +25,10 @@ router.get("/platform", (req, res) => {
   res.sendFile(path.join(dir, "/public/platform.html"));
 });
 
+router.post("/addQuestion", (req, res) => {
+  console.log(req.body);
+});
+
 module.exports = {
   router
 };

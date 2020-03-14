@@ -101,3 +101,20 @@ function modifyQuestionDisplay(path, chapter, qID) {
   } else {
   }
 }
+
+function addQuestionDisplay() {
+  __questionInput.value = "";
+  for (let i = 0; i < 3; i++) {
+    __answerInput[i].value = "";
+  }
+}
+
+function sendQuestion() {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", ".././addQuestion", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  let h = {
+    question: "hello"
+  };
+  xhr.send(JSON.stringify(h));
+}
