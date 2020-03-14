@@ -15,7 +15,9 @@ function addQuestion(initial, chapter, questionToAdd) {
     questionToAdd
   );
 }
-function deleteQuestion(initial, chapter, idx) {}
+function deleteQuestion(initial, chapter, idx) {
+  //delete testFile.initial[initial].chapters[chapter].chapterQuestions[]
+}
 function editQuestion(initial, chapter, idx) {}
 
 addQuestion(1, 0, {
