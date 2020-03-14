@@ -6,11 +6,14 @@ const __chapterInput = document.querySelector("#chapterNameInput");
 const __answerInput = document.querySelectorAll(".answer_input");
 const __deleteQuestionButton = document.querySelector("#b_delete");
 const __saveQuestionButton = document.querySelector("#b_save");
+const __correctRadio = document.querySelectorAll(".answerRadio");
 
 const __i_chapters = document.querySelector("#chapters1");
 const __o_chapters = document.querySelector("#chapters2");
 const __q_container = document.querySelector("#questionsContainer");
-let questionsFile;
+let questionsFile,
+  chapterSelected = 0,
+  pathSelected = 0;
 
 async function fetchQuestions() {
   // Fetch file from server
@@ -36,7 +39,7 @@ fetchQuestions().then(questions => {
     // Assign to each chapter their respective DOM structure
     chapterDOM = `
               <button
-                onclick="appear(); questionsToDisplay(1, ${i})"
+                onclick="appear(); questionsToDisplay(1, ${i}); updateSelectedChapter(${i}); updateSelectedPath(${1})"
                 class="w-full  tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
               >
                 ${inorganicChapters[i].chapterName}
@@ -51,7 +54,7 @@ fetchQuestions().then(questions => {
     // Assign to each chapter their respective DOM structure
     chapterDOM = `
               <button
-                onclick="appear()"
+                onclick="appear(); questionsToDisplay(2, ${i}); updateSelectedChapter(${i}); updateSelectedPath(${2})"
                 class="w-full  tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
               >
                 ${organicChapters[i].chapterName}
@@ -141,18 +144,51 @@ function modifyQuestionDisplay(path, chapter, qID) {
 }
 
 // Main functionality for the second popup (add)
-function addQuestionDisplay() {
+function addQuestionDisplay(path, chapter) {
   __questionInput.value = "";
   for (let i = 0; i < 3; i++) {
     __answerInput[i].value = "";
   }
 }
 
+function updateSelectedChapter(chapter) {
+  chapterSelected = chapter;
+}
+
+function updateSelectedPath(path) {
+  pathSelected = path;
+}
+
 // Send a POST request to the back-end server with the Question information
-function sendQuestion() {
+function sendQuestion(path, chapter) {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", ".././addQuestion", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   /// This is where I left off, I have to create the question file to send to the back-end
-  xhr.send(JSON.stringify(h));
+
+  let correctIndex;
+  for (let i = 0; i < 3; i++) {
+    if (__correctRadio[i].checked) {
+      correctIndex = i + 1;
+    }
+  }
+
+  let questionTemplate = {
+    questionBody: {
+      public: true,
+      questionID: 0,
+      question: __questionInput.value,
+      answers: [
+        __answerInput[0].value,
+        __answerInput[1].value,
+        __answerInput[2].value
+      ],
+      correct: correctIndex,
+      explanation: ""
+    },
+    initial: pathSelected,
+    chapter: chapterSelected
+  };
+
+  xhr.send(JSON.stringify(questionTemplate));
 }

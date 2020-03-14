@@ -67,7 +67,7 @@
 
             <!-- Add More Button -->
             <button
-              onclick="appear()"
+              onclick="appear(); updateSelectedPath(1)"
               id="addChapterI"
               class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg  py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
             >
@@ -95,7 +95,7 @@
 
             <!-- Add More Button -->
             <button
-              onclick="appear()"
+              onclick="appear(); updateSelectedPath(2)"
               id="addChapterO"
               class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg  py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
             >
@@ -251,7 +251,7 @@
 
         <!-- Option One -->
         <div id="this is an option" class="mt-2 mb-4 flex items-center">
-          <input type="radio" name="option" id="optionOneInput" />
+          <input type="radio" name="option" class="answerRadio" />
           <input
             type="text"
             name="option"
@@ -263,7 +263,7 @@
 
         <!-- Option Two -->
         <div id="this is an option" class="mt-2 mb-4 flex items-center">
-          <input type="radio" name="option" id="optionTwoInput" />
+          <input type="radio" name="option" class="answerRadio" />
           <input
             type="text"
             name="option"
@@ -274,7 +274,7 @@
         </div>
         <!-- Option Three -->
         <div id="this is an option" class="mt-2 mb-4 flex items-center">
-          <input type="radio" name="option" id="optionThreeInput" />
+          <input type="radio" name="option" class="answerRadio" />
           <input
             type="text"
             name="option"

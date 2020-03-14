@@ -5,6 +5,7 @@
         "chapterName": "Atoms",
         "chapterQuestions": [
           {
+            "public": true,
             "questionID": 1,
             "question": "Izotopii sunt:",
             "answers": [
@@ -16,6 +17,7 @@
             "explaination": "No explaination"
           },
           {
+            "public": true,
             "questionID": 2,
             "question": "Sarcina nucleara a atomului unui element care are 2 electroni pe stratul L este:",
             "answers": ["+2", "+4", "+6"],
@@ -23,6 +25,7 @@
             "explaination": "No explaination"
           },
           {
+            "public": true,
             "questionID": 3,
             "question": "Nivelul cu electroni caracterizat prin cea mai mica energie este:",
             "answers": ["1 (K)", "2 (L)", "3 (M)"],

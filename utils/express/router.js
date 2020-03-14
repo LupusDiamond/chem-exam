@@ -3,6 +3,7 @@
 // Importing packages
 const { express, path } = require("../packages");
 const { dir } = require("../../index");
+const { addQuestion } = require("../platform/index");
 
 // Create the expressjs router
 const router = express.Router();
@@ -27,6 +28,7 @@ router.get("/platform", (req, res) => {
 
 router.post("/addQuestion", (req, res) => {
   console.log(req.body);
+  addQuestion(req.body.initial, req.body.chapter, req.body.questionBody);
 });
 
 module.exports = {
