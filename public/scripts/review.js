@@ -35,9 +35,9 @@ async function displayQuestion(qIndex, qAnswer) {
     (await questions.inorganic.chapters[0].chapterQuestions[qIndex].correct) - 1
   ) {
     incorrects[mytestAnswers[qIndex]] = "incorrect ";
-    answerText = `<p class="text-red-600 w-auto font-bold mb-4 rounded-lg text-lg">Wrong.</p>`;
+    answerText = `<p class="text-red-600 w-auto  mb-4 rounded-lg text-lg">Wrong.</p>`;
   } else {
-    answerText = `<p class="text-green-600 w-auto font-bold mb-4 rounded-lg text-lg">Correct!</p>`;
+    answerText = `<p class="text-green-600 w-auto  mb-4 rounded-lg text-lg">Correct!</p>`;
   }
   let explaination = await questions.inorganic.chapters[0].chapterQuestions[
     qIndex
@@ -45,7 +45,7 @@ async function displayQuestion(qIndex, qAnswer) {
   let questionDOM = `<div class="my-6 md:my-8">
             <!-- Question -->
             <p
-              class="mb-4 text-gray-700 text-lg md:text-xl font-bold"
+              class="mb-4 text-gray-700 text-lg md:text-xl "
             >
              ${qIndex + 1}. ${await myQuestion}
             </p>
@@ -53,24 +53,24 @@ async function displayQuestion(qIndex, qAnswer) {
             ${answerText}
 
             <p
-              class="${await corrects[0]} ${await incorrects[0]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
+              class="${await corrects[0]} ${await incorrects[0]} answer tracking-wider text-lg text-left  w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
             >
               A. ${await myAnswers[0]}
             </p>
             <p
-              class="${await corrects[1]} ${await incorrects[1]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
+              class="${await corrects[1]} ${await incorrects[1]} answer tracking-wider text-lg text-left  w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
             >
               B. ${await myAnswers[1]}
             </p>
             <p
-              class="${await corrects[2]} ${await incorrects[2]} answer tracking-wider text-lg text-left font-bold w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
+              class="${await corrects[2]} ${await incorrects[2]} answer tracking-wider text-lg text-left  w-full p-4 mb-4 border-2 border-gray-400 bg-gray-300 text-gray-700 rounded"
             >
               C. ${await myAnswers[2]}
             </p>
 
             <!-- Explanation -->
 
-            <p class="mt-6 text-yellow-700 text-lg md:text-xl font-bold">
+            <p class="mt-6 text-yellow-700 text-lg md:text-xl ">
               <svg
                 class="transform -translate-y-px inline h-5 w-5"
                 width="24"

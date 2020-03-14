@@ -20,21 +20,25 @@
       <!-- Logo -->
       <div class="flex items-center">
         <img src="./images/logo.svg" alt="" class="h-6 w-6 md:h-8 md:w-8" />
-        <p class="text-xl md:text-3xl text-gray-700 font-bold ml-2 md:ml-4">
+        <p class="text-xl md:text-3xl text-gray-700  ml-2 md:ml-4">
           Chemistry
         </p>
       </div>
 
       <!-- Profile -->
       <div
-        class="cursor-pointer flex items-center text-base text-gray-700 md:text-lg font-bold"
+        class="cursor-pointer flex items-center text-base text-gray-700 md:text-lg "
       >
         <!-- Name -->
-        <p class="mr-2 text-sm font-bold uppercase">Name</p>
+        <p class="mr-2 text-sm  uppercase">Name</p>
 
         <!-- Profile Image -->
         <div class="rounded-full bg-white p-px md:p-1">
-          <img class="h-8 w-8 md:h-10 md:w-10 rounded-full" src="./images/woman.svg" alt="profile" />
+          <img
+            class="h-8 w-8 md:h-10 md:w-10 rounded-full"
+            src="./images/woman.svg"
+            alt="profile"
+          />
         </div>
       </div>
     </header>
@@ -49,32 +53,34 @@
           class="flex flex-col w-full h-full p-4 md:p-6 mb-6 md:mb-0 md:mr-4 bg-white rounded-lg shadow-lg"
         >
           <p
-            class="text-xl md:text-2xl text-center font-bold text-gray-700 px-6 mb-6 md:mb-8"
+            class="text-xl md:text-2xl text-center  text-gray-700 px-6 mb-6 md:mb-8"
           >
             Chapters - Inorganic Chemistry
           </p>
 
           <div class="flex flex-col flex-grow items-center justify-between">
             <!-- Chapters -->
-            <div id="chapters" class="w-full text-base md:text-xl text-gray-700">
-
+            <div
+              id="chapters"
+              class="w-full text-base md:text-xl text-gray-700"
+            >
+              <!-- Chapter -->
               <button
-                class="w-full font-bold tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
+                onclick="appear()"
+                class="w-full  tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
               >
                 Inorganic's Chapter
               </button>
-              
             </div>
 
             <!-- Add More Button -->
             <button
               onclick="appear()"
               id="addChapterI"
-              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
+              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg  py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
             >
               Add More
             </button>
-
           </div>
         </div>
 
@@ -83,38 +89,39 @@
           class="flex flex-col w-full h-full p-6 md:ml-4 bg-white rounded-lg shadow-lg"
         >
           <p
-            class="text-xl md:text-2xl text-center font-bold text-gray-700 px-6 mb-6 md:mb-8"
+            class="text-xl md:text-2xl text-center  text-gray-700 px-6 mb-6 md:mb-8"
           >
             Chapters - Organic Chemistry
           </p>
 
           <div class="flex flex-col flex-grow items-center justify-between">
             <!-- Chapters -->
-            <div id="chapters" class="w-full text-base md:text-xl text-gray-700">
-
+            <div
+              id="chapters"
+              class="w-full text-base md:text-xl text-gray-700"
+            >
+              <!-- Chapter -->
               <button
-                class="w-full font-bold tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
+                onclick="appear()"
+                class="w-full  tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
               >
                 Organic's Chapter
               </button>
-              
             </div>
 
             <!-- Add More Button -->
             <button
               onclick="appear()"
               id="addChapterO"
-              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
+              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg  py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
             >
               Add More
             </button>
-
           </div>
         </div>
       </div>
     </main>
 
-    
     <!-- Overlay -->
 
     <div
@@ -127,70 +134,172 @@
       class="form opacity-0 pointer-events-none z-20 px-4 md:pb-6 w-full max-w-3xl transition duration-300"
     >
       <div class="rounded p-6 md:py-8 md:px-12 bg-white shadow-lg">
-
         <!-- Chapter -->
-        <label
-            for="chapterName"
-            class="text-xl font-bold text-gray-700"
-            >Chapter Name
-          </label>
+        <label for="chapterName" class="text-xl  text-gray-700"
+          >Chapter Name
+        </label>
 
-            <input
-                type="text"
-                name="chapterName"
-                class="mt-2 mb-4 p-2 text-lg text-gray-700 font-bold w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
-                required
-                placeholder="ex. Thermodynamics"
-              />
-          
-          <div class="mb-2 flex justify-between">
-            <p class="text-xs font-bold uppercase text-gray-700"><span class="text-xl capitalize">Questions</span> (Tap to edit)</p>
+        <input
+          type="text"
+          name="chapterName"
+          class="mt-2 mb-4 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+          required
+          placeholder="ex. Thermodynamics"
+        />
 
-            <!-- Language -->
-            <div>
-              <input type="radio" name="language" id="romanian">
-              <label for="romanian">RO</label>
-              <input type="radio" name="language" id="english">
-              <label for="english">EN</label>
+        <div class="mb-2 flex justify-between">
+          <p class="text-xs  uppercase text-gray-700">
+            <span class="text-xl capitalize">Questions</span> (Tap to edit)
+          </p>
+
+          <!-- Language -->
+          <div>
+            <input type="radio" name="language" id="romanian" />
+            <label for="romanian">RO</label>
+            <input type="radio" name="language" id="english" />
+            <label for="english">EN</label>
+          </div>
+        </div>
+        <div class="text-gray-700 h-64 overflow-x-hidden overflow-y-auto">
+          <!-- Question(s) List -->
+
+          <div
+            onclick="appearTwo()"
+            id="questionListitem"
+            class="flex justify-between w-full  tracking-wide text-left mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
+          >
+            <div class="cursor-pointer w-full p-2 md:p-4 truncate">
+              Question-hint Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatibus, itaque.
             </div>
           </div>
-          <div class="text-gray-700 h-64 overflow-y-scroll">
-            
-            <!-- Question(s) List -->
+        </div>
 
-            <div class="flex justify-between w-full font-bold tracking-wide text-left mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400">
-                <div class="w-3/4 p-2 md:p-4 truncate">Question-hint Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ad accusamus cum vel repellendus eaque, laborum esse. Nihil aperiam assumenda odit. Similique quia voluptate repellendus quaerat, excepturi minima beatae facere.</div>
+        <!-- Add Questions Button -->
 
-                <button class="bg-red-600 font-bold tracking-widest uppercase rounded text-xs text-white px-2 py-1 md:px-4 m-2"><span class="hidden md:inline">Delete</span> <span class="md:hidden">X</span></button>
-            </div>
-
-          </div>
-
-          <!-- Add Questions Button -->
-          
-          <button
-              id="addQuestion"
-              class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg font-bold py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
-            >
-              Add Question
-          </button>
-
+        <button
+          onclick="appearTwo()"
+          id="addQuestion"
+          class="cursor-pointer bg-gray-300 flex items-center text-base text-gray-700 md:text-lg  py-2 px-4 mt-2 md:mt-4 rounded hover:bg-gray-400"
+        >
+          Add Question
+        </button>
       </div>
 
       <p
         onclick="remove()"
-        class="text-lg text-gray-600 font-bold text-center pt-6 cursor-pointer"
+        class="text-lg text-gray-600  text-center pt-6 cursor-pointer"
       >
         Tap to Cancel
       </p>
     </div>
 
+    <!-- Questions Page -->
+    <div
+      class="form-two opacity-0 pointer-events-none z-30 px-4 md:pb-6 w-full max-w-3xl transition duration-300"
+    >
+      <div class="rounded p-6 md:py-8 md:px-12 bg-white shadow-lg">
+        <!-- Question Input -->
+        <label for="questionInput" class="text-xl  text-gray-700"
+          >Question
+        </label>
 
+        <input
+          type="text"
+          name="questionInput"
+          class="mt-2 mb-4 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+          required
+          placeholder="ex. What is H2O?"
+        />
 
+        <!-- Answers Input -->
+        <p class="text-xs  uppercase text-gray-700">
+          <span class="text-xl capitalize">Options</span> (Select the correct)
+        </p>
+
+        <!-- Option One -->
+        <div id="this is an option" class="mt-2 mb-4 flex items-center">
+          <input type="radio" name="option" id="optionOneInput" />
+          <input
+            type="text"
+            name="option"
+            class="ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            required
+            placeholder="Option 1"
+          />
+        </div>
+
+        <!-- Option Two -->
+        <div id="this is an option" class="mt-2 mb-4 flex items-center">
+          <input type="radio" name="option" id="optionTwoInput" />
+          <input
+            type="text"
+            name="option"
+            class="ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            required
+            placeholder="Option 2"
+          />
+        </div>
+        <!-- Option Three -->
+        <div id="this is an option" class="mt-2 mb-4 flex items-center">
+          <input type="radio" name="option" id="optionThreeInput" />
+          <input
+            type="text"
+            name="option"
+            class="ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            required
+            placeholder="Option 3"
+          />
+        </div>
+        <!-- Option Four -->
+        <div id="this is an option" class="mt-2 mb-4 flex items-center">
+          <input type="radio" name="option" id="optionFourInput" />
+          <input
+            type="text"
+            name="option"
+            class="ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            required
+            placeholder="Option 4"
+          />
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-col md:flex-row justify-between">
+          <!-- Make Public -->
+          <div class="flex items-center">
+            <input type="checkbox" name="public" id="" />
+            <p class="text-lg ml-2 text-gray-700 ">Public</p>
+          </div>
+
+          <!-- Delete or Save -->
+          <div class="flex flex-col md:flex-row">
+            <button
+              class="my-2 md:my-0 w-full md:w-auto py-2 px-4 bg-red-600 text-center text-white rounded tracking-wider hover:bg-red-700"
+            >
+              Delete
+            </button>
+            <button
+              class="md:ml-2 w-full md:w-auto py-2 px-4 bg-indigo-600 text-center text-white rounded tracking-wider hover:bg-indigo-700"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p
+        onclick="remove()"
+        class="text-lg text-gray-600  text-center pt-6 cursor-pointer"
+      >
+        Tap to Cancel
+      </p>
+    </div>
 
     <script>
       var overlay = document.querySelector("#overlay");
       var form = document.querySelector(".form");
+      var formTwo = document.querySelector(".form-two");
 
       function appear() {
         overlay.classList.add("pointer-events-auto");
@@ -203,6 +312,17 @@
         form.classList.remove("opacity-0");
       }
 
+      function appearTwo() {
+        form.classList.remove("opacity-100");
+        form.classList.remove("pointer-events-auto");
+        form.classList.add("pointer-events-none");
+        form.classList.add("opacity-0");
+        formTwo.classList.add("opacity-100");
+        formTwo.classList.add("pointer-events-auto");
+        formTwo.classList.remove("pointer-events-none");
+        formTwo.classList.remove("opacity-0");
+      }
+
       function remove() {
         overlay.classList.remove("pointer-events-auto");
         overlay.classList.remove("opacity-75");
@@ -212,6 +332,10 @@
         form.classList.remove("pointer-events-auto");
         form.classList.add("pointer-events-none");
         form.classList.add("opacity-0");
+        formTwo.classList.remove("opacity-100");
+        formTwo.classList.remove("pointer-events-auto");
+        formTwo.classList.add("pointer-events-none");
+        formTwo.classList.add("opacity-0");
       }
     </script>
   </body>
