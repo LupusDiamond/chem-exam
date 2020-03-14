@@ -14,7 +14,7 @@
               "atomi ai aceluiasi element cu numere atomice diferite"
             ],
             "correct": 2,
-            "explaination": "No explaination"
+            "explanation": "No explaination"
           },
           {
             "public": true,
@@ -22,7 +22,7 @@
             "question": "Sarcina nucleara a atomului unui element care are 2 electroni pe stratul L este:",
             "answers": ["+2", "+4", "+6"],
             "correct": 2,
-            "explaination": "No explaination"
+            "explanation": "No explaination"
           },
           {
             "public": true,
@@ -30,14 +30,18 @@
             "question": "Nivelul cu electroni caracterizat prin cea mai mica energie este:",
             "answers": ["1 (K)", "2 (L)", "3 (M)"],
             "correct": 2,
-            "explaination": "No explaination"
+            "explanation": "No explaination"
           }
         ]
       }
     ]
   },
   "organic": {
-    "chapters": []
+    "chapters": [
+      {
+        "chapterName": "Hello"
+      }
+    ]
   },
   "nextQuestionID": 4
 }

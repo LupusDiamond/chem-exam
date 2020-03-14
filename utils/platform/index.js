@@ -15,6 +15,15 @@ function addQuestion(initial, chapter, questionToAdd) {
 }
 function deleteQuestion(initial, chapter, idx) {
   //delete testFile.initial[initial].chapters[chapter].chapterQuestions[]
+  if (initial == 1) {
+    let qIDX = testFile.inorganic.chapters[chapter].chapterQuestions.findIndex(
+      x => x.questionID == idx
+    );
+    console.log("Question ID:", qIDX);
+    testFile.inorganic.chapters[chapter].chapterQuestions.splice(qIDX, 1);
+    fs.writeFileSync("./utils/platform/test.json", JSON.stringify(testFile));
+  } else {
+  }
 }
 function editQuestion(initial, chapter, idx) {}
 

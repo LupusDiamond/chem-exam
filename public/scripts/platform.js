@@ -4,6 +4,7 @@
 const __questionInput = document.querySelector("#questionInput");
 const __chapterInput = document.querySelector("#chapterNameInput");
 const __answerInput = document.querySelectorAll(".answer_input");
+const __explanationInput = document.querySelector("#explanationInput");
 const __deleteQuestionButton = document.querySelector("#b_delete");
 const __saveQuestionButton = document.querySelector("#b_save");
 const __correctRadio = document.querySelectorAll(".answerRadio");
@@ -14,7 +15,8 @@ const __o_chapters = document.querySelector("#chapters2");
 const __q_container = document.querySelector("#questionsContainer");
 let questionsFile,
   chapterSelected = 0,
-  pathSelected = 0;
+  pathSelected = 0,
+  questionIDSelected = -1;
 
 async function fetchQuestions() {
   // Fetch file from server
@@ -24,7 +26,7 @@ async function fetchQuestions() {
   return await f_questions;
 }
 
-function updateQuestions() {
+async function updateQuestions() {
   console.log("Questions Updated!");
   fetchQuestions().then(questions => {
     // Save the fetched file locally in the front-end
@@ -67,6 +69,7 @@ function updateQuestions() {
       // Attach the DOM code to the chapter container
       __o_chapters.innerHTML += chapterDOM;
     }
+    return true;
   });
 }
 
@@ -97,7 +100,7 @@ function questionsToDisplay(path, chapter) {
     ) {
       // Construct the DOM structure
       questionTemplate = `<div
-            onclick="appearTwo(); modifyQuestionDisplay(1, ${chapter}, ${inorganicChapters[chapter].chapterQuestions[i].questionID})"
+            onclick="appearTwo(); modifyQuestionDisplay(1, ${chapter}, ${inorganicChapters[chapter].chapterQuestions[i].questionID}); updateSelectedQuestionID(${inorganicChapters[chapter].chapterQuestions[i].questionID})"
             id="questionListitem"
             class="flex justify-between w-full  tracking-wide text-left mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
           >
@@ -111,6 +114,8 @@ function questionsToDisplay(path, chapter) {
     }
     // Organic chapter
   } else {
+    // Chapter Input Value
+    __chapterInput.value = organicChapters[chapter].chapterName;
     // Loop over all of the chapter questions
     for (let i = 0; i < organicChapters[chapter].chapterQuestions.length; i++) {
       // Construct the DOM structure
@@ -167,6 +172,10 @@ function updateSelectedPath(path) {
   pathSelected = path;
 }
 
+function updateSelectedQuestionID(qID) {
+  questionIDSelected = qID;
+}
+
 // Send a POST request to the back-end server with the Question information
 function sendQuestion(path, chapter) {
   let xhr = new XMLHttpRequest();
@@ -192,14 +201,39 @@ function sendQuestion(path, chapter) {
         __answerInput[2].value
       ],
       correct: correctIndex,
-      explanation: ""
+      explanation: __explanationInput.value
     },
     initial: pathSelected,
     chapter: chapterSelected
   };
 
   xhr.send(JSON.stringify(questionTemplate));
-  updateQuestions();
+  fetchQuestions().then(questions => {
+    questionsFile = questions;
+    questionsToDisplay(pathSelected, chapterSelected);
+  });
+}
+
+function deleteQuestion() {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", ".././deleteQuestion", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  let reqBody = {
+    initial: pathSelected,
+    chapter: chapterSelected,
+    questionID: questionIDSelected
+  };
+  console.log(questionIDSelected);
+  xhr.send(JSON.stringify(reqBody));
+  fetchQuestions().then(questions => {
+    questionsFile = questions;
+    questionsToDisplay(pathSelected, chapterSelected);
+  });
 }
 
 updateQuestions();
+__deleteQuestionButton.onclick = () => {
+  deleteQuestion();
+  removeTwo();
+};

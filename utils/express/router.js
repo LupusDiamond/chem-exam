@@ -3,7 +3,7 @@
 // Importing packages
 const { express, path } = require("../packages");
 const { dir } = require("../../index");
-const { addQuestion } = require("../platform/index");
+const { addQuestion, deleteQuestion } = require("../platform/index");
 
 // Create the expressjs router
 const router = express.Router();
@@ -29,6 +29,11 @@ router.get("/platform", (req, res) => {
 router.post("/addQuestion", (req, res) => {
   console.log(req.body);
   addQuestion(req.body.initial, req.body.chapter, req.body.questionBody);
+});
+
+router.post("/deleteQuestion", (req, res) => {
+  console.log(req.body.questionID);
+  deleteQuestion(req.body.initial, req.body.chapter, req.body.questionID);
 });
 
 module.exports = {
