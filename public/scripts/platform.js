@@ -2,6 +2,7 @@
 
 // Dom Elements
 const __questionInput = document.querySelector("#questionInput");
+const __chapterInput = document.querySelector("#chapterNameInput");
 const __answerInput = document.querySelectorAll(".answer_input");
 const __deleteQuestionButton = document.querySelector("#b_delete");
 const __saveQuestionButton = document.querySelector("#b_save");
@@ -55,6 +56,7 @@ function questionsToDisplay(path, chapter) {
   let organicChapters = questionsFile.organic.chapters;
   __q_container.innerHTML = ``;
   if (path == 1) {
+    __chapterInput.value = inorganicChapters[chapter].chapterName;
     for (
       let i = 0;
       i < inorganicChapters[chapter].chapterQuestions.length;
