@@ -21,13 +21,19 @@ async function fetchQuestions() {
 }
 
 fetchQuestions().then(questions => {
+  // Save the fetched file locally in the front-end
   questionsFile = questions;
+
+  // Split the two initial chapters
   let inorganicChapters = questions.inorganic.chapters;
   let organicChapters = questions.organic.chapters;
 
+  // Variable to store upcoming DOM code
   let chapterDOM;
 
+  // Loop over the inorganic chapters
   for (let i = 0; i < inorganicChapters.length; i++) {
+    // Assign to each chapter their respective DOM structure
     chapterDOM = `
               <button
                 onclick="appear(); questionsToDisplay(1, ${i})"
@@ -35,9 +41,14 @@ fetchQuestions().then(questions => {
               >
                 ${inorganicChapters[i].chapterName}
               </button>`;
+
+    // Attach the DOM code to the chapter container
     __i_chapters.innerHTML += chapterDOM;
   }
+
+  // Loop over the organic chapters
   for (let i = 0; i < organicChapters.length; i++) {
+    // Assign to each chapter their respective DOM structure
     chapterDOM = `
               <button
                 onclick="appear()"
@@ -45,23 +56,35 @@ fetchQuestions().then(questions => {
               >
                 ${organicChapters[i].chapterName}
               </button>`;
+    // Attach the DOM code to the chapter container
     __o_chapters.innerHTML += chapterDOM;
   }
 });
 
+// Main functionality for the first popup
 function questionsToDisplay(path, chapter) {
+  // Empty question template that will be filled with DOM structure later
   let questionTemplate;
-  console.log(questionsFile);
+
+  // Splitting the two initial chapters
   let inorganicChapters = questionsFile.inorganic.chapters;
   let organicChapters = questionsFile.organic.chapters;
+
+  // Question container, initially empty
   __q_container.innerHTML = ``;
+
+  // Code the two chapters in separate ways (1 = inorganic)
   if (path == 1) {
+    // Chapter Input Value
     __chapterInput.value = inorganicChapters[chapter].chapterName;
+
+    // Loop over all of the chapter questions
     for (
       let i = 0;
       i < inorganicChapters[chapter].chapterQuestions.length;
       i++
     ) {
+      // Construct the DOM structure
       questionTemplate = `<div
             onclick="appearTwo(); modifyQuestionDisplay(1, ${chapter}, ${inorganicChapters[chapter].chapterQuestions[i].questionID})"
             id="questionListitem"
@@ -71,10 +94,15 @@ function questionsToDisplay(path, chapter) {
               ${inorganicChapters[chapter].chapterQuestions[i].question}
             </div>
           </div>`;
+
+      // Attach it to the question container
       __q_container.innerHTML += questionTemplate;
     }
+    // Organic chapter
   } else {
+    // Loop over all of the chapter questions
     for (let i = 0; i < organicChapters[chapter].chapterQuestions.length; i++) {
+      // Construct the DOM structure
       questionTemplate = `<div
             onclick="appearTwo()"
             id="questionListitem"
@@ -84,24 +112,35 @@ function questionsToDisplay(path, chapter) {
               ${organicChapters[chapter].chapterQuestions[i].question}
             </div>
           </div>`;
+
+      // Attach it to the question container
       __q_container.innerHTML += questionTemplate;
     }
   }
 }
 
+// Main functionality for the second popup (modify)
 function modifyQuestionDisplay(path, chapter, qID) {
+  // Code the two chapters accordingly (1 = inorganic)
   if (path == 1) {
+    // Load the question's text and answers
     let questionText = questionsFile.inorganic.chapters[
       chapter
     ].chapterQuestions.find(x => x.questionID == qID);
+
+    // Update the question DOM
     __questionInput.value = questionText.question;
+
+    // Loop over the answer's DOM and update them accordingly
     for (let i = 0; i < 3; i++) {
       __answerInput[i].value = questionText.answers[i];
     }
+    // Organic chapter
   } else {
   }
 }
 
+// Main functionality for the second popup (add)
 function addQuestionDisplay() {
   __questionInput.value = "";
   for (let i = 0; i < 3; i++) {
@@ -109,12 +148,11 @@ function addQuestionDisplay() {
   }
 }
 
+// Send a POST request to the back-end server with the Question information
 function sendQuestion() {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", ".././addQuestion", true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  let h = {
-    question: "hello"
-  };
+  /// This is where I left off, I have to create the question file to send to the back-end
   xhr.send(JSON.stringify(h));
 }
