@@ -8,6 +8,8 @@ const __saveQuestionButton = document.querySelector("#b_save");
 
 const __i_chapters = document.querySelector("#chapters1");
 const __o_chapters = document.querySelector("#chapters2");
+const __q_container = document.querySelector("#questionsContainer");
+let questionsFile;
 
 async function fetchQuestions() {
   // Fetch file from server
@@ -18,6 +20,7 @@ async function fetchQuestions() {
 }
 
 fetchQuestions().then(questions => {
+  questionsFile = questions;
   let inorganicChapters = questions.inorganic.chapters;
   let organicChapters = questions.organic.chapters;
 
@@ -26,7 +29,7 @@ fetchQuestions().then(questions => {
   for (let i = 0; i < inorganicChapters.length; i++) {
     chapterDOM = `
               <button
-                onclick="appear()"
+                onclick="appear(); questionsToDisplay(1, ${i})"
                 class="w-full  tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
               >
                 ${inorganicChapters[i].chapterName}
@@ -44,3 +47,42 @@ fetchQuestions().then(questions => {
     __o_chapters.innerHTML += chapterDOM;
   }
 });
+
+function questionsToDisplay(path, chapter) {
+  let questionTemplate;
+  console.log(questionsFile);
+  let inorganicChapters = questionsFile.inorganic.chapters;
+  let organicChapters = questionsFile.organic.chapters;
+  __q_container.innerHTML = ``;
+  if (path == 1) {
+    for (
+      let i = 0;
+      i < inorganicChapters[chapter].chapterQuestions.length;
+      i++
+    ) {
+      questionTemplate = `<div
+            onclick="appearTwo()"
+            id="questionListitem"
+            class="flex justify-between w-full  tracking-wide text-left mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
+          >
+            <div class="cursor-pointer w-full p-2 md:p-4 truncate">
+              ${inorganicChapters[chapter].chapterQuestions[i].question}
+            </div>
+          </div>`;
+      __q_container.innerHTML += questionTemplate;
+    }
+  } else {
+    for (let i = 0; i < organicChapters[chapter].chapterQuestions.length; i++) {
+      questionTemplate = `<div
+            onclick="appearTwo()"
+            id="questionListitem"
+            class="flex justify-between w-full  tracking-wide text-left mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
+          >
+            <div class="cursor-pointer w-full p-2 md:p-4 truncate">
+              ${organicChapters[chapter].chapterQuestions[i].question}
+            </div>
+          </div>`;
+      __q_container.innerHTML += questionTemplate;
+    }
+  }
+}
