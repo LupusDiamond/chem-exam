@@ -57,7 +57,7 @@ function loadPreviousQuestion() {
 }
 
 __next.addEventListener("click", () => {
-  if (currentQuestionIndex < 2) {
+  if (currentQuestionIndex < 9) {
     loadNextQuestion();
   }
 });

@@ -17,7 +17,7 @@ const { router } = require("./utils/express/router");
 e_app.use("/", router);
 
 e_app.get("/questions", (req, res) => {
-  res.sendFile(path.join(__dirname, "/utils/exam/questions.json"));
+  res.sendFile(path.join(__dirname, "/utils/platform/test.json"));
 });
 
 require("./utils/platform/index");

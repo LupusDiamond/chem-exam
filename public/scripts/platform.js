@@ -7,6 +7,7 @@ const __answerInput = document.querySelectorAll(".answer_input");
 const __deleteQuestionButton = document.querySelector("#b_delete");
 const __saveQuestionButton = document.querySelector("#b_save");
 const __correctRadio = document.querySelectorAll(".answerRadio");
+const __isPublic = document.querySelector("#c-public");
 
 const __i_chapters = document.querySelector("#chapters1");
 const __o_chapters = document.querySelector("#chapters2");
@@ -23,21 +24,25 @@ async function fetchQuestions() {
   return await f_questions;
 }
 
-fetchQuestions().then(questions => {
-  // Save the fetched file locally in the front-end
-  questionsFile = questions;
+function updateQuestions() {
+  console.log("Questions Updated!");
+  fetchQuestions().then(questions => {
+    // Save the fetched file locally in the front-end
+    questionsFile = questions;
 
-  // Split the two initial chapters
-  let inorganicChapters = questions.inorganic.chapters;
-  let organicChapters = questions.organic.chapters;
+    // Split the two initial chapters
+    let inorganicChapters = questions.inorganic.chapters;
+    let organicChapters = questions.organic.chapters;
 
-  // Variable to store upcoming DOM code
-  let chapterDOM;
+    // Variable to store upcoming DOM code
+    let chapterDOM;
+    __i_chapters.innerHTML = ``;
+    __o_chapters.innerHTML = ``;
 
-  // Loop over the inorganic chapters
-  for (let i = 0; i < inorganicChapters.length; i++) {
-    // Assign to each chapter their respective DOM structure
-    chapterDOM = `
+    // Loop over the inorganic chapters
+    for (let i = 0; i < inorganicChapters.length; i++) {
+      // Assign to each chapter their respective DOM structure
+      chapterDOM = `
               <button
                 onclick="appear(); questionsToDisplay(1, ${i}); updateSelectedChapter(${i}); updateSelectedPath(${1})"
                 class="w-full  tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
@@ -45,24 +50,25 @@ fetchQuestions().then(questions => {
                 ${inorganicChapters[i].chapterName}
               </button>`;
 
-    // Attach the DOM code to the chapter container
-    __i_chapters.innerHTML += chapterDOM;
-  }
+      // Attach the DOM code to the chapter container
+      __i_chapters.innerHTML += chapterDOM;
+    }
 
-  // Loop over the organic chapters
-  for (let i = 0; i < organicChapters.length; i++) {
-    // Assign to each chapter their respective DOM structure
-    chapterDOM = `
+    // Loop over the organic chapters
+    for (let i = 0; i < organicChapters.length; i++) {
+      // Assign to each chapter their respective DOM structure
+      chapterDOM = `
               <button
                 onclick="appear(); questionsToDisplay(2, ${i}); updateSelectedChapter(${i}); updateSelectedPath(${2})"
                 class="w-full  tracking-wide text-left p-2 md:p-4 mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
               >
                 ${organicChapters[i].chapterName}
               </button>`;
-    // Attach the DOM code to the chapter container
-    __o_chapters.innerHTML += chapterDOM;
-  }
-});
+      // Attach the DOM code to the chapter container
+      __o_chapters.innerHTML += chapterDOM;
+    }
+  });
+}
 
 // Main functionality for the first popup
 function questionsToDisplay(path, chapter) {
@@ -72,6 +78,8 @@ function questionsToDisplay(path, chapter) {
   // Splitting the two initial chapters
   let inorganicChapters = questionsFile.inorganic.chapters;
   let organicChapters = questionsFile.organic.chapters;
+
+  console.log(inorganicChapters);
 
   // Question container, initially empty
   __q_container.innerHTML = ``;
@@ -175,7 +183,7 @@ function sendQuestion(path, chapter) {
 
   let questionTemplate = {
     questionBody: {
-      public: true,
+      public: __isPublic.checked,
       questionID: 0,
       question: __questionInput.value,
       answers: [
@@ -191,4 +199,7 @@ function sendQuestion(path, chapter) {
   };
 
   xhr.send(JSON.stringify(questionTemplate));
+  updateQuestions();
 }
+
+updateQuestions();
