@@ -61,7 +61,7 @@
           <div class="flex flex-col flex-grow items-center justify-between">
             <!-- Chapters -->
             <div
-              id="chapters"
+              id="chapters1"
               class="w-full text-base md:text-xl text-gray-700"
             >
               <!-- Chapter -->
@@ -97,7 +97,7 @@
           <div class="flex flex-col flex-grow items-center justify-between">
             <!-- Chapters -->
             <div
-              id="chapters"
+              id="chapters2"
               class="w-full text-base md:text-xl text-gray-700"
             >
               <!-- Chapter -->
@@ -211,6 +211,7 @@
           class="mt-2 mb-4 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
           required
           placeholder="ex. What is H2O?"
+          id="questionInput"
         />
 
         <!-- Answers Input -->
@@ -224,7 +225,7 @@
           <input
             type="text"
             name="option"
-            class="ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            class="answer_input ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
             required
             placeholder="Option 1"
           />
@@ -236,7 +237,7 @@
           <input
             type="text"
             name="option"
-            class="ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            class="answer_input ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
             required
             placeholder="Option 2"
           />
@@ -247,7 +248,7 @@
           <input
             type="text"
             name="option"
-            class="ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
+            class="answer_input ml-2 p-2 text-lg text-gray-700  w-full rounded  border-2 border-gray-300 focus:border-indigo-300 tracking-widest placeholder-gray-500"
             required
             placeholder="Option 3"
           />
@@ -264,11 +265,13 @@
           <!-- Delete or Save -->
           <div class="flex flex-col md:flex-row">
             <button
+              id="b_delete"
               class="my-2 md:my-0 w-full md:w-auto py-2 px-4 bg-red-600 text-center text-white rounded tracking-wider hover:bg-red-700"
             >
               Delete
             </button>
             <button
+              id="b_save"
               class="md:ml-2 w-full md:w-auto py-2 px-4 bg-indigo-600 text-center text-white rounded tracking-wider hover:bg-indigo-700"
             >
               Save
