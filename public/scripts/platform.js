@@ -61,7 +61,7 @@ function questionsToDisplay(path, chapter) {
       i++
     ) {
       questionTemplate = `<div
-            onclick="appearTwo()"
+            onclick="appearTwo(); modifyQuestionDisplay(1, ${chapter}, ${inorganicChapters[chapter].chapterQuestions[i].questionID})"
             id="questionListitem"
             class="flex justify-between w-full  tracking-wide text-left mb-4 bg-gray-300 rounded border-2 border-gray-400 hover:bg-gray-400"
           >
@@ -84,5 +84,18 @@ function questionsToDisplay(path, chapter) {
           </div>`;
       __q_container.innerHTML += questionTemplate;
     }
+  }
+}
+
+function modifyQuestionDisplay(path, chapter, qID) {
+  if (path == 1) {
+    let questionText = questionsFile.inorganic.chapters[
+      chapter
+    ].chapterQuestions.find(x => x.questionID == qID);
+    __questionInput.value = questionText.question;
+    for (let i = 0; i < 3; i++) {
+      __answerInput[i].value = questionText.answers[i];
+    }
+  } else {
   }
 }
