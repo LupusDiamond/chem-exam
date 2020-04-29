@@ -39,9 +39,9 @@ async function displayQuestion(qIndex, qAnswer) {
   } else {
     answerText = `<p class="text-green-600 w-auto  mb-4 rounded-lg text-lg">Correct!</p>`;
   }
-  let explaination = await questions.inorganic.chapters[0].chapterQuestions[
+  let explanation = await questions.inorganic.chapters[0].chapterQuestions[
     qIndex
-  ].explaination;
+  ].explanation;
   let questionDOM = `<div class="my-6 md:my-8">
             <!-- Question -->
             <p
@@ -90,7 +90,7 @@ async function displayQuestion(qIndex, qAnswer) {
               <span
                 >Explanation :
                 <span id="explanation"
-                  >${await explaination}
+                  >${await explanation}
                 </span>
               </span>
             </p>
